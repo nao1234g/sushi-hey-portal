@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SUSHI HEY! - 公式ポータル | デュアル・ユニバース</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Noto Sans JP Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700;900&family=Noto+Serif+JP:wght@400;700&display=swap" rel="stylesheet">
+    
+    <style>
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+        }
+        
+        @keyframes rainbow {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        .rainbow-text {
+            background: linear-gradient(
+                90deg,
+                #ff0000,
+                #ff7f00,
+                #ffff00,
+                #00ff00,
+                #0000ff,
+                #4b0082,
+                #9400d3,
+                #ff0000
+            );
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: rainbow 3s linear infinite;
+        }
+        
+        .rainbow-border {
+            background: linear-gradient(
+                90deg,
+                #ff0000,
+                #ff7f00,
+                #ffff00,
+                #00ff00,
+                #0000ff,
+                #4b0082,
+                #9400d3,
+                #ff0000
+            );
+            background-size: 200% auto;
+            animation: rainbow 3s linear infinite;
+            padding: 3px;
+            border-radius: 0.75rem;
+        }
+        
+        .rainbow-border-inner {
+            background: black;
+            border-radius: 0.5rem;
+        }
+        
+        /* Gen's monochrome aesthetic */
+        .gen-section {
+            font-family: 'Noto Serif JP', serif;
+            background: black;
+            color: white;
+        }
+        
+        .gen-text {
+            color: #ffffff;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+        }
+        
+        .gen-border {
+            border: 2px solid #ffffff;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+        }
+        
+        .kohada-emoji {
+            display: inline-block;
+            animation: float 3s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        .link-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .link-card:hover {
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 0 30px rgba(255, 255, 255, 0.3);
+        }
+        
+        .fade-in {
+            animation: fadeIn 1s ease-in;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        /* Split screen divider */
+        .universe-divider {
+            position: relative;
+        }
+        
+        .universe-divider::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            width: 2px;
+            height: 100%;
+            background: linear-gradient(to bottom, transparent, rgba(255, 255, 255, 0.3), transparent);
+        }
+        
+        @media (max-width: 768px) {
+            .universe-divider::after {
+                left: 0;
+                top: 50%;
+                width: 100%;
+                height: 2px;
+                background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.3), transparent);
+            }
+        }
+    </style>
+</head>
+<body class="bg-black text-white min-h-screen overflow-x-hidden">
+    
+    <!-- Hero Section - Dual Universe Split Screen -->
+    <section class="min-h-screen flex items-center justify-center relative universe-divider">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-2 gap-8 md:gap-0">
+                
+                <!-- Left: Gen's Universe (Monochrome) -->
+                <div class="gen-section p-8 md:p-12 flex flex-col justify-center items-center text-center fade-in">
+                    <h2 class="text-5xl md:text-6xl font-bold mb-6 gen-text">
+                        源
+                    </h2>
+                    <p class="text-lg md:text-xl mb-4 text-gray-300 leading-relaxed">
+                        19歳の寿司職人見習い
+                    </p>
+                    <div class="gen-border p-6 mt-6 max-w-md">
+                        <p class="text-base md:text-lg text-gray-400 leading-relaxed">
+                            伝統技術への敬意。<br>
+                            毎日の鍛錬。<br>
+                            握る一貫に込める魂。<br>
+                            <span class="text-white font-bold">まだ視えないもの。</span>
+                        </p>
+                    </div>
+                    <p class="text-sm text-gray-600 mt-8 italic">
+                        The Real Universe
+                    </p>
+                </div>
+                
+                <!-- Right: Kohada-kun's Universe (Rainbow) -->
+                <div class="p-8 md:p-12 flex flex-col justify-center items-center text-center fade-in">
+                    <h2 class="text-5xl md:text-6xl font-black mb-6 rainbow-text">
+                        小肌くん
+                    </h2>
+                    <p class="text-lg md:text-xl mb-4 text-gray-300 leading-relaxed">
+                        <span class="kohada-emoji">🍣</span> 押される寿司の精霊 <span class="kohada-emoji">🍣</span>
+                    </p>
+                    <div class="rainbow-border mt-6 max-w-md">
+                        <div class="rainbow-border-inner p-6">
+                            <p class="text-base md:text-lg text-gray-300 leading-relaxed">
+                                ポップで楽しい！<br>
+                                虹色の魔法！<br>
+                                みんなと一緒に「HEY!」<br>
+                                <span class="rainbow-text font-bold text-xl">エンターテインメントの世界へ</span>
+                            </p>
+                        </div>
+                    </div>
+                    <p class="text-sm text-gray-600 mt-8 italic">
+                        The Fantasy Universe
+                    </p>
+                </div>
+                
+            </div>
+            
+            <!-- Center Title -->
+            <div class="text-center mt-12 fade-in">
+                <h1 class="text-4xl md:text-6xl lg:text-7xl font-black rainbow-text mb-4">
+                    SUSHI HEY!
+                </h1>
+                <p class="text-gray-400 text-sm md:text-base">
+                    Two universes. Two heroes. One destiny.
+                </p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Story Section - Dual Universe Explanation -->
+    <section class="py-20 px-4">
+        <div class="max-w-5xl mx-auto">
+            <h2 class="text-4xl md:text-5xl font-bold mb-16 text-center">
+                <span class="rainbow-text">Story</span>
+            </h2>
+            
+            <div class="grid md:grid-cols-2 gap-12 mb-16">
+                
+                <!-- Gen's Story -->
+                <div class="gen-section p-8 rounded-lg gen-border fade-in">
+                    <h3 class="text-2xl md:text-3xl font-bold mb-6 gen-text">源の世界</h3>
+                    <div class="space-y-4 text-gray-300">
+                        <p class="leading-relaxed">
+                            東京の片隅にある小さな寿司屋で修行する19歳の源。
+                        </p>
+                        <p class="leading-relaxed">
+                            師匠の厳しい指導のもと、伝統的な江戸前寿司の技術を学ぶ日々。
+                        </p>
+                        <p class="leading-relaxed">
+                            彼にはまだ<strong class="text-white">視えないもの</strong>がある。
+                        </p>
+                        <p class="leading-relaxed text-gray-500 italic">
+                            しかし、その日は必ず来る―
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- Kohada-kun's Story -->
+                <div class="rainbow-border fade-in">
+                    <div class="rainbow-border-inner p-8">
+                        <h3 class="text-2xl md:text-3xl font-bold mb-6 rainbow-text">小肌くんの世界</h3>
+                        <div class="space-y-4 text-gray-300">
+                            <p class="leading-relaxed">
+                                <span class="kohada-emoji">🐟</span> 寿司の精霊、小肌くん。彼は今日も元気いっぱい！
+                            </p>
+                            <p class="leading-relaxed">
+                                YouTube、TikTok、noteで楽しいコンテンツを配信中。
+                            </p>
+                            <p class="leading-relaxed">
+                                寿司文化の楽しさを世界中に届けるため、<strong class="text-white">みんなと一緒に</strong>冒険している。
+                            </p>
+                            <p class="leading-relaxed text-yellow-400 font-bold">
+                                「さぁ、一緒に楽しもう！ HEY!」
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <!-- The Golden Rule -->
+            <div class="text-center p-8 border border-gray-700 rounded-lg fade-in">
+                <p class="text-xl md:text-2xl text-gray-400 mb-4 italic">
+                    二つのユニバースは、今はまだ交わらない。
+                </p>
+                <p class="text-base md:text-lg text-gray-500">
+                    源と小肌くんは、それぞれの世界で別々の時を刻んでいる。<br>
+                    しかし、いつの日か―
+                </p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Links Section -->
+    <section class="py-20 px-4">
+        <div class="max-w-4xl mx-auto">
+            <h2 class="text-4xl md:text-5xl font-bold mb-12 text-center">
+                <span class="rainbow-text">Links</span>
+            </h2>
+            <p class="text-center text-gray-400 mb-12">
+                小肌くんの冒険をフォローしよう！
+            </p>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                
+                <!-- YouTube -->
+                <a href="https://youtube.com/@sushi-hey" target="_blank" rel="noopener noreferrer" 
+                   class="link-card rainbow-border">
+                    <div class="rainbow-border-inner p-8 text-center">
+                        <div class="text-5xl mb-4">📺</div>
+                        <h3 class="text-2xl font-bold mb-2">YouTube</h3>
+                        <p class="text-gray-400">動画で楽しむ<br>小肌くんの世界</p>
+                    </div>
+                </a>
+                
+                <!-- TikTok -->
+                <a href="https://tiktok.com/@sushihey" target="_blank" rel="noopener noreferrer" 
+                   class="link-card rainbow-border">
+                    <div class="rainbow-border-inner p-8 text-center">
+                        <div class="text-5xl mb-4">🎵</div>
+                        <h3 class="text-2xl font-bold mb-2">TikTok</h3>
+                        <p class="text-gray-400">ショート動画で<br>サクッと楽しむ</p>
+                    </div>
+                </a>
+                
+                <!-- note -->
+                <a href="https://note.com/sushihey" target="_blank" rel="noopener noreferrer" 
+                   class="link-card rainbow-border">
+                    <div class="rainbow-border-inner p-8 text-center">
+                        <div class="text-5xl mb-4">📝</div>
+                        <h3 class="text-2xl font-bold mb-2">note</h3>
+                        <p class="text-gray-400">読み物で深掘り<br>寿司とストーリー</p>
+                    </div>
+                </a>
+                
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="py-12 px-4 text-center border-t border-gray-800 mt-20">
+        <div class="max-w-4xl mx-auto">
+            <p class="text-gray-400 mb-4 text-lg">
+                Produced by 
+                <a href="https://nao-roy.com" target="_blank" rel="noopener noreferrer" 
+                   class="text-white font-bold hover:rainbow-text transition-all duration-300">
+                    Nao & Roy
+                </a>
+            </p>
+            <p class="text-gray-600 text-sm mb-4">
+                © 2026 SUSHI HEY! All rights reserved.
+            </p>
+            <div class="flex justify-center items-center gap-8 mt-6">
+                <div class="text-3xl gen-text">🥷</div>
+                <div class="text-4xl kohada-emoji">🍣</div>
+            </div>
+            <p class="text-gray-700 text-xs mt-6 italic">
+                Two universes. One stage. The story begins here.
+            </p>
+        </div>
+    </footer>
+    
+</body>
+</html>
